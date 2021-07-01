@@ -83,7 +83,7 @@ CREATE TABLE color (
 CREATE TABLE phone_color (
     phone_id INT UNSIGNED,
     color_id INT UNSIGNED,
-    FOREIGN KEY (phone_id) REFERENCES color(id),
+    FOREIGN KEY (phone_id) REFERENCES phone(id),
     FOREIGN KEY (color_id) REFERENCES color(id)
 );
 
@@ -97,8 +97,33 @@ CREATE TABLE sensor (
 CREATE TABLE phone_sensor(
     sensor_id INT UNSIGNED,
     phone_id INT UNSIGNED,
-    FOREIGN KEY (phone_id) REFERENCES color(id),
+    FOREIGN KEY (phone_id) REFERENCES phone(id),
     FOREIGN KEY (sensor_id) REFERENCES sensor(id)
 );
 
 
+--@block
+CREATE TABLE camera (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    mega_pixels INT UNSIGNED NOT NULL,
+    type VARCHAR(10),  -- eg: ultrawide, macro
+    location VARCHAR(5) NOT NULL -- "front or rear"
+)
+
+
+--@block
+CREATE TABLE phone_camera (
+    phone_id INT UNSIGNED,
+    camera_id INT UNSIGNED,
+    FOREIGN KEY (phone_id) REFERENCES phone(id),
+    FOREIGN KEY (camera_id) REFERENCES camera(id)
+);
+
+
+--@block
+CREATE TABLE news (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    heading VARCHAR(255) NOT NULL,
+    image_url VARCHAR(500),
+    news_text VARCHAR(1024) NOT NULL
+);
