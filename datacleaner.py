@@ -1,8 +1,10 @@
-import pandas as pd
 import re
+from math import isnan
+
+import pandas as pd
+
 from datacleaner_helper import clean_cams, clean_sensors
 
-from math import isnan
 # read the csv file
 df1 = pd.read_excel("MobileDB.xlsx")
 # print(df1.info())
@@ -14,7 +16,8 @@ df2 = pd.DataFrame(columns=["brand_name", "name", "os", "weight_grams", "cpu", "
 # print(df2)
 
 # get brand name from full name (slice from start to just before first space)
-df2["brand_name"] = df1["Name"].apply(lambda name: name[: name.index(" ")])
+df2["brand_name"] = df1["Name"].apply(
+    lambda name: name[: name.index(" ")].capitalize())
 
 # get phone_name from full name (slice from just after first space to end of full name)
 df2["name"] = df1["Name"].apply(lambda name: name[name.index(" ")+1:])
@@ -50,9 +53,9 @@ df2["battery_capacity_mah"] = df1["Capacity"].apply(
     lambda x: int(re.sub("[^0-9]", "", x)))
 
 # price
-df2["price_rupees"] = df1["Price in Rs."].apply(lambda x: 
-    int(x[x.find("Rs. ") + 4: x.find("PKR")].replace(",", "")) if type(x) == str
-    else None)
+df2["price_rupees"] = df1["Price in Rs."].apply(lambda x:
+                                                int(x[x.find("Rs. ") + 4: x.find("PKR")].replace(",", "")) if type(x) == str
+                                                else None)
 
 
 # cleaning up rear cameras

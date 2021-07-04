@@ -48,10 +48,13 @@ def clean_cams(cams_string):
 
 
 def clean_sensors(sensors_string):
-    sensors_lst = sensors_string.split(",")  # make a list of the sensors
-    for i in range(len(sensors_lst)):
-        sensors_lst[i] = sensors_lst[i].capitalize()  # make first char capital, rest lowercase
-        if "(" in sensors_lst[i]:
-            sensors_lst[i] = sensors_lst[i][ : sensors_lst[i].find("(")]  # slice up the string till just before open parenthis 
-    return sensors_lst
+    # sensors_lst = sensors_string.split(",")  # make a list of the sensors
+    # for i in range(len(sensors_lst)):
+    #       # make first char capital, rest lowercase
+    #     if "(" in sensors_lst[i]:
+    #         sensors_lst[i] = sensors_lst[i][ : sensors_lst[i].find("(")]  # slice up the string till just before open parenthis 
+    # return sensors_lst
+    if "(" in sensors_string:
+        sensors_string = sensors_string[ : sensors_string.find("(")] + sensors_string[ sensors_string.find(")") + 1 : ]
+    return sensors_string.split(",")  # make a list of the sensors
 
