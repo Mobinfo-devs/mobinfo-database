@@ -72,6 +72,7 @@ CREATE TABLE specification (
     battery_features VARCHAR(255),
     FOREIGN KEY (phone_id) REFERENCES phone(id)
 );
+-- battery features column dropped later
 
 --@block
 CREATE TABLE color (
@@ -127,3 +128,40 @@ CREATE TABLE news (
     image_url VARCHAR(500),
     news_text VARCHAR(1024) NOT NULL
 );
+
+
+--@block
+ALTER TABLE specification
+DROP COLUMN battery_features;
+
+--@BLOCK
+ALTER TABLE specification
+DROP COLUMN display_resoluition;
+
+ALTER TABLE specification
+ADD COLUMN display_resolution VARCHAR(50)
+AFTER screen_size_inches;
+
+--@block
+ALTER TABLE specification
+MODIFY COLUMN screen_size_inches FLOAT;
+
+--@block;
+ALTER TABLE camera RENAME COLUMN mega_pixels TO megapixels;
+
+
+
+--- test selects
+--@block
+SELECT brand_name, name, sensor_name
+FROM 
+    phone JOIN phone_sensor ON phone.id = phone_sensor.phone_id
+    JOIN sensor ON phone_sensor.sensor_id = sensor.id;
+
+--@block
+SELECT phone.brand_name, phone.name, camera.megapixels, camera.type
+FROM 
+    phone JOIN phone_camera ON phone.id = phone_camera.phone_id
+    JOIN camera ON phone_camera.camera_id = camera.id
+WHERE
+	location = "rear";
