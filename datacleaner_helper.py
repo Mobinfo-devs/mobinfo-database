@@ -45,3 +45,13 @@ def clean_cams(cams_string):
 
 # rear_cams = rear_cams.apply(clean_cams)
 # [print(i, (x)) for i, x in enumerate(rear_cams)]
+
+
+def clean_sensors(sensors_string):
+    sensors_lst = sensors_string.split(",")  # make a list of the sensors
+    for i in range(len(sensors_lst)):
+        sensors_lst[i] = sensors_lst[i].capitalize()  # make first char capital, rest lowercase
+        if "(" in sensors_lst[i]:
+            sensors_lst[i] = sensors_lst[i][ : sensors_lst[i].find("(")]  # slice up the string till just before open parenthis 
+    return sensors_lst
+

@@ -1,6 +1,8 @@
 import pandas as pd
 import re
+from datacleaner_helper import clean_cams, clean_sensors
 
+from math import isnan
 # read the csv file
 df1 = pd.read_excel("MobileDB.xlsx")
 # print(df1.info())
@@ -8,7 +10,7 @@ df1 = pd.read_excel("MobileDB.xlsx")
 # make an empty dataframe to store the cleaned data
 df2 = pd.DataFrame(columns=["brand_name", "name", "os", "weight_grams", "cpu", "chipset", "display_technology",
                    "screen_size_inches", "display_resolution", "extra_display_features", "built_in_memory", "ram", "battery_capacity_mah",
-                   "front_cameras", "rear_cameras"])
+                            "price_rupees", "front_cameras", "rear_cameras", "sensors"])
 # print(df2)
 
 # get brand name from full name (slice from start to just before first space)
@@ -43,24 +45,36 @@ df2["extra_display_features"] = df1["Extra Features"]
 # df2["ram"] = df1["Built-in"].apply(lambda x: int(x[x.index("GB"): x.index("GB", x.index("GB"))]))
 # print(df2[["built_in_memory", "ram"]])
 
-# New battery capacity = numeric part from old Cpacity
+# New battery capacity = numeric part from old Cpacity string
 df2["battery_capacity_mah"] = df1["Capacity"].apply(
     lambda x: int(re.sub("[^0-9]", "", x)))
 
+# price
+df2["price_rupees"] = df1["Price in Rs."].apply(lambda x: 
+    int(x[x.find("Rs. ") + 4: x.find("PKR")].replace(",", "")) if type(x) == str
+    else None)
+
 
 # cleaning up rear cameras
-rear_cams = (df1["Main"])
-rear_cams = rear_cams.apply(lambda cams_str: cams_str.split("+"))  # seperate every camera for every row (based on +)
+rear_cams = df1["Main"]
+# seperate every camera for every row (based on +)
+rear_cams = rear_cams.apply(lambda cams_str: cams_str.split("+"))
 rear_cams = rear_cams.apply(lambda cam_list: [
     (
         re.sub("[^0-9]", "", cam[:cam.find("MP")])
     )
     for cam in cam_list])  # for every seperate camera string, truncate it at "MP", remove non numeric chars (re) and convert to int to get MPS
 df2["rear_cameras"] = rear_cams
-print(df2["rear_cams"][3])
+
 
 # cleaning up front cameras
+df2["front_cameras"] = df1["Front"].apply(clean_cams)
+
+
+# Cleaning up sensors
+# make a list of sensors for every row
+df2["sensors"] = df1["Sensors"].apply(clean_sensors)
 
 
 # Exporting the new dataframe as csv
-# df2.to_csv(r'CleanedUp.csv')
+df2.to_csv(r'CleanedUp.csv')
