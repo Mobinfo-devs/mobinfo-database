@@ -1,7 +1,31 @@
 
+import builtins
 import sys
 import pandas as pd
 import re
+
+def get_first_num_from_str(s):
+    if s.isdigit():
+        return s
+
+    all_nums = []
+    current_num = ""
+    for x in s:
+        if x.isdigit():
+            current_num += x
+        elif current_num != "":
+            all_nums.append(current_num)
+            current_num = ""
+
+    return all_nums[0]
+
+def clean_builtin(memory_string):
+    return int(get_first_num_from_str(memory_string.split(",")[0]))
+
+
+def clean_ram(memory_string):
+    return int(get_first_num_from_str(memory_string.split(",")[1]))
+
 
 def clean_cams(cams_string):
     def get_last_num_from_str(s):
@@ -48,12 +72,6 @@ def clean_cams(cams_string):
 
 
 def clean_sensors(sensors_string):
-    # sensors_lst = sensors_string.split(",")  # make a list of the sensors
-    # for i in range(len(sensors_lst)):
-    #       # make first char capital, rest lowercase
-    #     if "(" in sensors_lst[i]:
-    #         sensors_lst[i] = sensors_lst[i][ : sensors_lst[i].find("(")]  # slice up the string till just before open parenthis 
-    # return sensors_lst
     if "(" in sensors_string:
         sensors_string = sensors_string[ : sensors_string.find("(")] + sensors_string[ sensors_string.find(")") + 1 : ]
     return sensors_string.split(",")  # make a list of the sensors

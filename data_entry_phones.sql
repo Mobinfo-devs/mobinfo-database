@@ -19,3 +19,10 @@ VALUES
     ("Xiaomi", "Redmi Note 10S", 39999),
     ("Xiaomi", "Poco F3", 65999),
     ("Xiaomi", "Redmi Note 10 Pro", 47999);
+
+
+--@block
+DELETE FROM phone;
+
+--@block
+ALTER TABLE phone AUTO_INCREMENT = 1;

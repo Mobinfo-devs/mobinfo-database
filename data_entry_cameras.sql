@@ -19,3 +19,12 @@ VALUES
 --@block
 INSERT INTO phone_camera (phone_id, camera_id)
 VALUES (4, 5), (4, 6), (4, 3), (4, 4);
+
+
+--@block
+DELETE FROM phone_camera;
+DELETE FROM camera;
+
+
+--@block
+ALTER TABLE camera AUTO_INCREMENT = 1;

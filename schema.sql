@@ -165,3 +165,15 @@ FROM
     JOIN camera ON phone_camera.camera_id = camera.id
 WHERE
 	location = "rear";
+
+
+--@block
+ALTER TABLE camera
+DROP COLUMN type;
+
+--@block
+ALTER TABLE phone
+DROP COLUMN price_rupees;
+
+ALTER TABLE specification
+ADD COLUMN price_rupees INT UNSIGNED;
