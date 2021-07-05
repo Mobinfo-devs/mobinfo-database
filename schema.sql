@@ -177,3 +177,15 @@ DROP COLUMN price_rupees;
 
 ALTER TABLE specification
 ADD COLUMN price_rupees INT UNSIGNED;
+
+
+--@block
+ALTER TABLE specification
+MODIFY COLUMN built_in_memory INT UNSIGNED;
+ALTER TABLE specification
+MODIFY COLUMN ram INT UNSIGNED;
+
+ALTER TABLE specification 
+RENAME COLUMN built_in_memory TO built_in_memory_GB;
+ALTER TABLE specification 
+RENAME COLUMN ram TO ram_GB;
