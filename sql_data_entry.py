@@ -1,6 +1,6 @@
-from mysql.connector.errors import ProgrammingError
+from numpy.lib.shape_base import column_stack
 import pandas as pd
-
+from numpy import nan
 from os import getenv
 import mysql.connector
 
@@ -16,10 +16,10 @@ db = db_connection.cursor(buffered=True)
 
 df = pd.read_csv("CleanedUp.csv")
 
+df = df.where(pd.notnull(df), None)
+
 
 for i in range(len(df)):
-    if i == 0:
-        continue
     row = df.iloc[i]
 
     phone_name = row["name"]
@@ -34,23 +34,20 @@ for i in range(len(df)):
     )
     db_connection.commit()
 
-    try:
-        # get phone id from database
-        db.execute("""
-            SELECT id FROM phone
-            WHERE brand_name = %s AND name = %s;
-            """, (brand_name, phone_name)
-        )
-        phone_id = db.fetchone()[0]
-    except:
-        print(phone_name)
-        raise ProgrammingError
+    # get phone id from database
+    db.execute("""
+        SELECT id FROM phone
+        WHERE brand_name = %s AND name = %s;
+        """, (brand_name, phone_name)
+    )
+    phone_id = db.fetchone()[0]
 
-    # ENtry into specification table
+
+    # Entry into specification table
     db.execute("""
     INSERT INTO specification
     (phone_id, os, weight_grams, cpu, chipset, display_technology, screen_size_inches,
-     display_resolution, extra_display_features, built_in_memory_GB, ram_GB, battery_capacity_mah, price_rupees)
+    display_resolution, extra_display_features, built_in_memory_GB, ram_GB, battery_capacity_mah, price_rupees)
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
     """,
     (phone_id, row["os"], int(row["weight_grams"]), row["cpu"], row["chipset"], row["display_technology"], float(row["screen_size_inches"]), 
@@ -210,16 +207,3 @@ for i in range(len(df)):
                     (phone_id, camera_id)
             )
         db_connection.commit()
-
-        
-
-
-
-
-
-
-
-        
-
-
-    break

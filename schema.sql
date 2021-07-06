@@ -189,3 +189,7 @@ ALTER TABLE specification
 RENAME COLUMN built_in_memory TO built_in_memory_GB;
 ALTER TABLE specification 
 RENAME COLUMN ram TO ram_GB;
+
+--@block
+ALTER TABLE specification
+MODIFY COLUMN os VARCHAR(100);
