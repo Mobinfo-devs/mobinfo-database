@@ -1,0 +1,54 @@
+-- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
+--
+-- Host: localhost    Database: mobinfo
+-- ------------------------------------------------------
+-- Server version	8.0.25
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `phone_camera`
+--
+
+DROP TABLE IF EXISTS `phone_camera`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `phone_camera` (
+  `phone_id` int unsigned DEFAULT NULL,
+  `camera_id` int unsigned DEFAULT NULL,
+  KEY `phone_id` (`phone_id`),
+  KEY `camera_id` (`camera_id`),
+  CONSTRAINT `phone_camera_ibfk_1` FOREIGN KEY (`phone_id`) REFERENCES `phone` (`id`),
+  CONSTRAINT `phone_camera_ibfk_2` FOREIGN KEY (`camera_id`) REFERENCES `camera` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `phone_camera`
+--
+
+LOCK TABLES `phone_camera` WRITE;
+/*!40000 ALTER TABLE `phone_camera` DISABLE KEYS */;
+INSERT INTO `phone_camera` VALUES (155,43),(155,43),(155,43),(155,44),(155,44),(156,45),(156,46),(156,47),(156,47),(156,48),(157,45),(157,43),(157,47),(157,47),(157,49),(158,50),(158,51),(158,52),(159,53),(159,47),(159,51),(159,51),(159,54),(160,43),(160,45),(160,43),(160,44),(161,55),(161,56),(161,56),(161,43),(161,57),(162,50),(162,47),(162,51),(162,54),(163,46),(163,52),(164,58),(164,59),(165,53),(165,46),(165,51),(165,51),(165,54),(166,45),(166,46),(166,51),(166,51),(166,60),(166,49),(167,45),(167,46),(167,51),(167,51),(167,60),(168,46),(168,52),(169,53),(169,46),(169,51),(169,60),(170,50),(170,47),(170,51),(170,54),(171,53),(171,46),(171,51),(171,54),(172,50),(172,54),(173,61),(173,62),(173,46),(173,63),(174,61),(174,62),(174,46),(174,64),(174,49),(175,43),(175,43),(175,43),(175,65),(176,43),(176,43),(176,43),(176,64),(176,65),(177,43),(177,43),(177,43),(177,65),(178,43),(178,43),(178,43),(178,64),(178,65),(179,43),(179,43),(179,66),(180,43),(180,43),(180,65),(181,43),(181,43),(181,65),(182,43),(182,66),(183,43),(183,43),(183,66),(184,43),(184,66),(185,53),(185,51),(185,51),(185,54),(186,55),(186,50),(186,47),(186,48),(187,45),(187,46),(187,47),(187,60),(188,45),(188,46),(188,51),(188,51),(188,67),(189,53),(189,46),(189,47),(189,48),(190,55),(190,46),(190,47),(190,51),(190,60),(191,53),(191,46),(191,51),(191,51),(191,67),(192,53),(192,46),(192,51),(192,51),(192,67),(193,53),(193,46),(193,51),(193,51),(193,54),(194,50),(194,46),(194,47),(194,51),(194,54),(195,45),(195,46),(195,43),(195,47),(195,49);
+/*!40000 ALTER TABLE `phone_camera` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-07-12 21:03:44
