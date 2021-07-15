@@ -9,7 +9,7 @@ db_connection = mysql.connector.connect(
     host="localhost",
     user="root",
     password=getenv("MySQLpassword"),
-    database="mobinfo"
+    database="mobinfo_backup"
 )
 
 db = db_connection.cursor(buffered=True)
