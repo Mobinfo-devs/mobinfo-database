@@ -193,3 +193,25 @@ RENAME COLUMN ram TO ram_GB;
 --@block
 ALTER TABLE specification
 MODIFY COLUMN os VARCHAR(100);
+
+
+-- @block 
+-- moving specs to phone table and deleting specification table
+ALTER TABLE phone 
+ADD COLUMN os VARCHAR(100),
+ADD COLUMN weight_grams INT UNSIGNED,
+ADD COLUMN cpu VARCHAR(255),
+ADD COLUMN chipset VARCHAR(255),
+ADD COLUMN display_technology VARCHAR(255),
+ADD COLUMN screen_size_inches FLOAT,
+ADD COLUMN display_resolution VARCHAR(50),
+ADD COLUMN extra_display_features VARCHAR(255),
+ADD COLUMN built_in_memory_GB INT UNSIGNED,
+ADD COLUMN ram_GB INT UNSIGNED,
+ADD COLUMN battery_capacity_mah INT UNSIGNED;
+
+DROP TABLE specification;
+
+--@block
+ALTER TABLE phone
+ADD COLUMN price_rupees INT UNSIGNED;
