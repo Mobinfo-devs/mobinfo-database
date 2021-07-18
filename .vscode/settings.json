@@ -2,17 +2,17 @@
     "sqltools.connections": [
         {
             "mysqlOptions": {
-                "authProtocol": "xprotocol"
+                "authProtocol": "default"
             },
             "previewLimit": 50,
             "server": "localhost",
-            "port": 33060,
-            "askForPassword": true,
+            "port": 3306,
             "driver": "MySQL",
             "name": "mobinfo",
             "database": "mobinfo",
             "username": "root",
+            "password": "mysql",
             "connectionTimeout": 22800
         }
-     ]
+    ]
 }
