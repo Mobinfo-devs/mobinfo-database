@@ -9,7 +9,7 @@ db_connection = mysql.connector.connect(
     host="localhost",
     user="root",
     password=getenv("MySQLpassword"),
-    database="mobinfo_backup"
+    database="mobinfo"
 )
 
 db = db_connection.cursor(buffered=True)
@@ -22,15 +22,14 @@ df = df.where(pd.notnull(df), None)
 for i in range(len(df)):
     row = df.iloc[i]
 
-    phone_name = row["name"]
-    brand_name = row["brand_name"]
-
     # Entry into table phone
     db.execute("""
-    INSERT INTO phone (brand_name, name)
-    VALUES (%s, %s);
+    INSERT INTO phone (brand_name, name, image_url, os, weight_grams, cpu, chipset, display_technology, screen_size_inches,
+    display_resolution, extra_display_features, built_in_memory_GB, ram_GB, battery_capacity_mah, price_rupees)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
     """,
-               (brand_name, phone_name)
+               (row["brand_name"], row["name"], row["image_urls"], row["os"], int(row["weight_grams"]), row["cpu"], row["chipset"], row["display_technology"], float(row["screen_size_inches"]), 
+    row["display_resolution"], row["extra_display_features"], int(row["built_in_memory"]), int(row["ram"]), int(row["battery_capacity_mah"]), int(row["price_rupees"]))
     )
     db_connection.commit()
 
@@ -38,22 +37,21 @@ for i in range(len(df)):
     db.execute("""
         SELECT id FROM phone
         WHERE brand_name = %s AND name = %s;
-        """, (brand_name, phone_name)
+        """, (row["brand_name"], row["name"])
     )
     phone_id = db.fetchone()[0]
 
 
-    # Entry into specification table
-    db.execute("""
-    INSERT INTO specification
-    (phone_id, os, weight_grams, cpu, chipset, display_technology, screen_size_inches,
-    display_resolution, extra_display_features, built_in_memory_GB, ram_GB, battery_capacity_mah, price_rupees)
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
-    """,
-    (phone_id, row["os"], int(row["weight_grams"]), row["cpu"], row["chipset"], row["display_technology"], float(row["screen_size_inches"]), 
-    row["display_resolution"], row["extra_display_features"], int(row["built_in_memory"]), int(row["ram"]), int(row["battery_capacity_mah"]), int(row["price_rupees"]) )
-    )
-    db_connection.commit()
+    # # Entry into specification table
+    # db.execute("""
+    # INSERT INTO specification
+    # (phone_id, os, weight_grams, cpu, chipset, display_technology, screen_size_inches,
+    # display_resolution, extra_display_features, built_in_memory_GB, ram_GB, battery_capacity_mah, price_rupees)
+    # VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);
+    # """,
+    # ( )
+    # )
+    # db_connection.commit()
 
 
     # inserting colors
