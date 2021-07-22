@@ -215,3 +215,7 @@ DROP TABLE specification;
 --@block
 ALTER TABLE phone
 ADD COLUMN price_rupees INT UNSIGNED;
+
+--@block
+ALTER TABLE brand
+MODIFY COLUMN description TEXT;
