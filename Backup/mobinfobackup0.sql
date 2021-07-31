@@ -1,13 +1,13 @@
--- MySQL dump 10.13  Distrib 8.0.25, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.8, for Win64 (x86)
 --
 -- Host: localhost    Database: mobinfo
 -- ------------------------------------------------------
--- Server version	8.0.25
+-- Server version	5.5.8
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -21,13 +21,13 @@
 
 DROP TABLE IF EXISTS `brand`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `brand` (
   `name` varchar(30) NOT NULL,
-  `description` varchar(1000) NOT NULL,
+  `description` text,
   `logo_url` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `brand` (
 
 LOCK TABLES `brand` WRITE;
 /*!40000 ALTER TABLE `brand` DISABLE KEYS */;
-INSERT INTO `brand` VALUES ('Apple','American company',NULL),('Huawei','banned chinese company',NULL),('Realme','ChingCHong company',NULL),('Samsung','Korean company',NULL),('Xiaomi','Chinese company',NULL);
+INSERT INTO `brand` VALUES ('Apple','Apple was founded by Steve Jobs, Steve Wozniak, and Ronald Wayne in 1976 to develop and sell Wozniak\'s Apple I personal computer. It was incorporated by Jobs and Wozniak as Apple Computer, Inc. in 1977, and sales of its computers, including the Apple II, grew quickly. They went public in 1980 to instant financial success. Over the next few years, Apple shipped new computers featuring innovative graphical user interfaces, such as the original Macintosh, announced with the critically acclaimed advert \'1984\'. However, the high price of its products and limited application library caused problems, as did power struggles between executives. In 1985, Wozniak departed Apple amicably, while Jobs resigned to found NeXT, taking some Apple co-workers with him.\r\n\r\nAs the market for personal computers expanded and evolved through the 1990s, Apple lost considerable market share to the lower-priced duopoly of Microsoft Windows on Intel PC clones. The board recruited CEO Gil Amelio, who prepared the struggling company for eventual success with extensive reforms, product focus and layoffs in his 500 day tenure. In 1997, Gil bought NeXT, to resolve Apple\'s unsuccessful OS strategy and bring back Steve Jobs, who replaced Amelio as CEO later that year. Apple returned to profitability under the revitalizing \'Think different\' campaign, launching the iMac and iPod, opening a retail chain of Apple Stores in 2001, and acquiring numerous companies to broaden their software portfolio. In 2007, the company launched the iPhone to critical acclaim and financial success. In 2011, Jobs resigned as CEO due to health complications, and died two months later. He was succeeded by Tim Cook.\r\n\r\nIn August 2018, Apple became the first publicly traded U.S. company to be valued at over $1 trillion and the first valued over $2 trillion two years later. It has a high level of brand loyalty and is ranked as the world\'s most valuable brand; as of January 2021, there are 1.65 billion Apple products in use worldwide.','https://logos-download.com/wp-content/uploads/2017/07/Apple_Logo_1998.svg'),('Huawei','The company was founded in 1987 by Ren Zhengfei, a former Deputy Regimental Chief in the People\'s Liberation Army. Initially focused on manufacturing phone switches, Huawei has expanded its business to include building telecommunications networks, providing operational and consulting services and equipment to enterprises inside and outside of China, and manufacturing communications devices for the consumer market. Huawei has over 194,000 employees as of December 2019.\r\n\r\nHuawei has deployed its products and services in more than 170 countries and areas. It overtook Ericsson in 2012 as the largest telecommunications equipment manufacturer in the world, and overtook Apple in 2018 as the second-largest manufacturer of smartphones in the world, behind Samsung Electronics. In 2018, Huawei reported that its annual revenue was US$108.5 billion. In July 2020, Huawei surpassed Samsung and Apple to become the top smartphone brand (in number of phones shipped) in the world for the first time.\r\n\r\nHuawei’s mission is to bring digital to every person, home and organization for a fully connected, intelligent world. To this end, we will: drive ubiquitous connectivity and promote equal access to networks to lay the foundation for the intelligent world; provide the ultimate computing power to deliver ubiquitous cloud and intelligence; build powerful digital platforms to help all industries and organizations become more agile, efficient, and dynamic; redefine user experience with AI, offering consumers more personalized and intelligent experiences across all scenarios, including home, travel, office, entertainment, and fitness & health.','https://www.kindpng.com/picc/m/199-1996327_logo-huawei-hd-png-download.png'),('Realme','REALMEMEE','https://image01.realme.net/general/20181116/1542370418184.jpg'),('Samsung',NULL,NULL),('Xiaomi','Xiaomi Corporation registered in Asia as Xiaomi Inc., is a Chinese multinational electronics company founded in April 2010 and headquartered in Beijing. The \'MI\' in their logo stands for \'Mobile Internet\'. It also has other meanings, including \'Mission Impossible\', because Xiaomi faced many challenges that had seemed impossible to defy in their early days. Xiaomi released its first smartphone in August 2011 and rapidly gained market share in China to become the country\'s largest smartphone company in 2014. At the start of second quarter of 2018, Xiaomi was the world\'s fourth-largest smartphone manufacturer, leading in both the largest market, China, and the second-largest market, India. Xiaomi has 18,170 employees worldwide. It has expanded to other markets including Greater China, Singapore, Japan, South Korea, Russia, South Africa and most countries and regions in Southeast Asia and Europe. According to Forbes, Lei Jun, the founder and CEO, has an estimated net worth of US$12.5 billion. Xiaomi is the world\'s 4th most valuable technology start-up after receiving US$1.1 billion funding from investors, making Xiaomi\'s valuation more than US$46 billion. Ranked 468th, Xiaomi is the youngest company on Fortune Global 500 list for 2019. In 2019, Xiaomi\'s mobile phone shipments reached 125 million units, ranking fourth globally since 2018. According to Canalys, in the second quarter of 2021, Xiaomi was the second biggest smartphone maker globally in terms of sales.','https://logos-download.com/wp-content/uploads/2016/05/Xiaomi_Logo_2021.svg');
 /*!40000 ALTER TABLE `brand` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -46,13 +46,13 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `camera`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `camera` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `megapixels` int unsigned NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `megapixels` int(10) unsigned NOT NULL,
   `location` varchar(5) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=68 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,7 +61,7 @@ CREATE TABLE `camera` (
 
 LOCK TABLES `camera` WRITE;
 /*!40000 ALTER TABLE `camera` DISABLE KEYS */;
-INSERT INTO `camera` VALUES (43,12,'rear'),(44,10,'front'),(45,64,'rear'),(46,8,'rear'),(47,5,'rear'),(48,20,'front'),(49,32,'front'),(50,13,'rear'),(51,2,'rear'),(52,5,'front'),(53,48,'rear'),(54,8,'front'),(55,108,'rear'),(56,10,'rear'),(57,40,'front'),(58,16,'rear'),(59,50,'front'),(60,16,'front'),(61,40,'rear'),(62,20,'rear'),(63,24,'front'),(64,3,'rear'),(65,12,'front'),(66,7,'front'),(67,13,'front');
+INSERT INTO `camera` VALUES (1,2,'rear'),(2,12,'rear'),(3,10,'front'),(4,64,'rear'),(5,8,'rear'),(6,5,'rear'),(7,32,'front'),(8,20,'front'),(9,13,'rear'),(10,5,'front'),(11,48,'rear'),(12,8,'front'),(13,108,'rear'),(14,10,'rear'),(15,40,'front'),(16,16,'rear'),(17,50,'front'),(18,16,'front'),(19,40,'rear'),(20,20,'rear'),(21,24,'front'),(22,3,'rear'),(23,12,'front'),(24,7,'front'),(25,13,'front');
 /*!40000 ALTER TABLE `camera` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -71,12 +71,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `color`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `color` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `color_name` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=185 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ CREATE TABLE `color` (
 
 LOCK TABLES `color` WRITE;
 /*!40000 ALTER TABLE `color` DISABLE KEYS */;
-INSERT INTO `color` VALUES (110,'Mystic Black'),(111,'Mystic Bronze'),(112,'Awesome Black'),(113,'Awesome White'),(114,'Awesome Blue'),(115,'Awesome Violet'),(116,'Black'),(117,'Blue'),(118,'White'),(119,'Red'),(120,'Phantom Gray'),(121,'Phantom White'),(122,'Phantom Violet'),(123,'Phantom Pink'),(124,'Phantom Black'),(125,'Phantom Silver'),(126,'Metallic Blue'),(127,'Violet'),(128,'Black Sapphire'),(129,'Gold Platinum'),(130,'Silver Titan'),(131,'White Pearl'),(132,'Midnight Black'),(133,'Brush Gold'),(134,'Crush Green'),(135,'Green'),(136,'Space Silver'),(137,'Sakura Pink'),(138,'Mint Green'),(139,'Phantom Blue'),(140,'Breathing Crystal'),(141,'Purple'),(142,'Aurora Blue'),(143,'Orchid Blue'),(144,'Starry Black'),(145,'Emerald Green'),(146,'Midnight Blue'),(147,'Twilight'),(148,'Pink Gold'),(149,'Aurora'),(150,'Amber Sunrise'),(151,'Space Gray'),(152,'Silver'),(153,'Gold'),(154,'Midnight Green'),(155,'Graphite'),(156,'Pacific Blue'),(157,'Yellow'),(158,'Coral'),(159,'Jet Black'),(160,'Rose Gold'),(161,'Poco Yellow'),(162,'Horizon Blue'),(163,'Cloud White'),(164,'Midnight Gray'),(165,'Special Edition Blue'),(166,'Boba Black'),(167,'Peach Pink'),(168,'Bubblegum Blue'),(169,'Deep Sea Blue (Ocean Blue)'),(170,'Shadow Black (Onyx Gray)'),(171,'(Frost White) Pebble White'),(172,'Arctic White'),(173,'Night Black'),(174,'Deep Ocean Blue'),(175,'Onyx Gray'),(176,'Glacier Blue'),(177,'Gradient Bronze'),(178,'Pebble White'),(179,'Lake Green'),(180,'Carbon Gray'),(181,'Twilight Blue'),(182,'Sunrise Orange'),(183,'Ocean Green'),(184,'Sunset Purple');
+INSERT INTO `color` VALUES (1,'Mystic Black'),(2,'Mystic Bronze'),(3,'Awesome Black'),(4,'Awesome White'),(5,'Awesome Blue'),(6,'Awesome Violet'),(7,'Black'),(8,'Blue'),(9,'White'),(10,'Red'),(11,'Phantom Gray'),(12,'Phantom White'),(13,'Phantom Violet'),(14,'Phantom Pink'),(15,'Phantom Black'),(16,'Phantom Silver'),(17,'Metallic Blue'),(18,'Violet'),(19,'Black Sapphire'),(20,'Gold Platinum'),(21,'Silver Titan'),(22,'White Pearl'),(23,'Midnight Black'),(24,'Brush Gold'),(25,'Crush Green'),(26,'Green'),(27,'Space Silver'),(28,'Sakura Pink'),(29,'Mint Green'),(30,'Phantom Blue'),(31,'Breathing Crystal'),(32,'Purple'),(33,'Aurora Blue'),(34,'Orchid Blue'),(35,'Starry Black'),(36,'Emerald Green'),(37,'Midnight Blue'),(38,'Twilight'),(39,'Pink Gold'),(40,'Aurora'),(41,'Amber Sunrise'),(42,'Space Gray'),(43,'Silver'),(44,'Gold'),(45,'Midnight Green'),(46,'Graphite'),(47,'Pacific Blue'),(48,'Yellow'),(49,'Coral'),(50,'Jet Black'),(51,'Rose Gold'),(52,'Poco Yellow'),(53,'Horizon Blue'),(54,'Cloud White'),(55,'Midnight Gray'),(56,'Special Edition Blue'),(57,'Boba Black'),(58,'Peach Pink'),(59,'Bubblegum Blue'),(60,'Deep Sea Blue (Ocean Blue)'),(61,'Shadow Black (Onyx Gray)'),(62,'(Frost White) Pebble White'),(63,'Arctic White'),(64,'Night Black'),(65,'Deep Ocean Blue'),(66,'Onyx Gray'),(67,'Glacier Blue'),(68,'Gradient Bronze'),(69,'Pebble White'),(70,'Lake Green'),(71,'Carbon Gray'),(72,'Twilight Blue'),(73,'Sunrise Orange'),(74,'Ocean Green'),(75,'Sunset Purple');
 /*!40000 ALTER TABLE `color` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,15 +95,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `favourite`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `favourite` (
-  `phone_id` int unsigned DEFAULT NULL,
+  `phone_id` int(10) unsigned DEFAULT NULL,
   `username` varchar(30) DEFAULT NULL,
   KEY `phone_id` (`phone_id`),
   KEY `username` (`username`),
   CONSTRAINT `favourite_ibfk_1` FOREIGN KEY (`phone_id`) REFERENCES `phone` (`id`),
   CONSTRAINT `favourite_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -121,15 +121,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `marketshare`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `marketshare` (
   `brand_name` varchar(30) DEFAULT NULL,
-  `share_percentage` int unsigned DEFAULT NULL,
-  `year` int unsigned NOT NULL,
-  `quarter` int unsigned NOT NULL,
+  `share_percentage` int(10) unsigned DEFAULT NULL,
+  `year` int(10) unsigned NOT NULL,
+  `quarter` int(10) unsigned NOT NULL,
   KEY `brand_name` (`brand_name`),
   CONSTRAINT `marketshare_ibfk_1` FOREIGN KEY (`brand_name`) REFERENCES `brand` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,14 +147,14 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `news`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `news` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `heading` varchar(255) NOT NULL,
   `image_url` varchar(500) DEFAULT NULL,
   `news_text` varchar(1024) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,16 +172,28 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `phone`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `phone` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `brand_name` varchar(30) DEFAULT NULL,
   `name` varchar(100) NOT NULL,
   `image_url` varchar(500) DEFAULT NULL,
+  `os` varchar(100) DEFAULT NULL,
+  `weight_grams` int(10) unsigned DEFAULT NULL,
+  `cpu` varchar(255) DEFAULT NULL,
+  `chipset` varchar(255) DEFAULT NULL,
+  `display_technology` varchar(255) DEFAULT NULL,
+  `screen_size_inches` float DEFAULT NULL,
+  `display_resolution` varchar(50) DEFAULT NULL,
+  `extra_display_features` varchar(255) DEFAULT NULL,
+  `built_in_memory_GB` int(10) unsigned DEFAULT NULL,
+  `ram_GB` int(10) unsigned DEFAULT NULL,
+  `battery_capacity_mah` int(10) unsigned DEFAULT NULL,
+  `price_rupees` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `brand_name` (`brand_name`),
   CONSTRAINT `phone_ibfk_1` FOREIGN KEY (`brand_name`) REFERENCES `brand` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=196 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +202,7 @@ CREATE TABLE `phone` (
 
 LOCK TABLES `phone` WRITE;
 /*!40000 ALTER TABLE `phone` DISABLE KEYS */;
-INSERT INTO `phone` VALUES (155,'Samsung','Galaxy Z Fold 2',NULL),(156,'Samsung','Galaxy A32',NULL),(157,'Samsung','Galaxy A52',NULL),(158,'Samsung','Galaxy A02',NULL),(159,'Samsung','Galaxy A12',NULL),(160,'Samsung','Galaxy S21',NULL),(161,'Samsung','Galaxy S21 Ultra',NULL),(162,'Samsung','Galaxy M11',NULL),(163,'Samsung','Galaxy A01 Core',NULL),(164,'Samsung','Galaxy Note 5',NULL),(165,'Huawei','Y7a',NULL),(166,'Huawei','Nova 8 Pro',NULL),(167,'Huawei','Y9a',NULL),(168,'Huawei','Y5p',NULL),(169,'Huawei','Y8p',NULL),(170,'Huawei','Y6p',NULL),(171,'Huawei','Y7p',NULL),(172,'Huawei','Y6s',NULL),(173,'Huawei','Mate 20 Pro',NULL),(174,'Huawei','P30 Pro',NULL),(175,'Apple','iPhone 11 Pro Max',NULL),(176,'Apple','iPhone 12 Pro Max',NULL),(177,'Apple','iPhone 11 Pro',NULL),(178,'Apple','iPhone 12 Pro',NULL),(179,'Apple','iPhone XS Max',NULL),(180,'Apple','iPhone 12',NULL),(181,'Apple','iPhone 11',NULL),(182,'Apple','iPhone XR',NULL),(183,'Apple','iPhone7 Plus 128GB',NULL),(184,'Apple','iPhone X',NULL),(185,'Xiaomi','Poco M3 Pro',NULL),(186,'Xiaomi','Mi 11',NULL),(187,'Xiaomi','Mi 11 Lite',NULL),(188,'Xiaomi','Redmi Note 10S 8GB',NULL),(189,'Xiaomi','Poco F3 8GB',NULL),(190,'Xiaomi','Redmi Note 10 Pro 8GB',NULL),(191,'Xiaomi','Redmi Note 9',NULL),(192,'Xiaomi','Redmi Note 10',NULL),(193,'Xiaomi','Redmi 9T 6GB',NULL),(194,'Xiaomi','Redmi 9',NULL),(195,'Samsung','Galaxy A72',NULL);
+INSERT INTO `phone` VALUES (1,'Samsung','Galaxy Z Fold 2','https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-z-fold2-5g.jpg','Android 10 OS, One UI 2.1',279,'Octa-core (1 x 3.09 GHz Kryo 585 + 3 x 2.42 GHz Kryo 585 + 4 x 1.8 GHz Kryo 585)','Qualcomm SM8250 Snapdragon 865+ (7 nm+)','Foldable Dynamic AMOLED 2X Capacitive Touchscreen, 16M Colors, Multitouch',7.6,'1536 x 2208 Pixels (~354 PPI)','HDR10+, 120Hz refresh rate, Cover display: 6.23, Super AMOLED, (816 x 2260 pixels) + (25:9)',256,12,4500,269999),(2,'Samsung','Galaxy A72','https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a72-4g.jpg','Android 11 OS, One UI 3.1',203,'Octa-core (2 x 2.3 GHz Kryo 465 Gold + 6 x 1.8 GHz Kryo 465 Silver)','Qualcomm SM7125 Snapdragon 720G (8 nm)','Super AMOLED Capacitive Touchscreen, Multitouch',6.7,'1080 x 2400 Pixels (~393 PPI)','90Hz, 800 nits (peak)',128,8,5000,69999),(3,'Samsung','Galaxy A32','https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a32-4g-new.jpg','Android 11 OS, One UI 3.0',184,'Octa-core (2 x 2.0 GHz Cortex-A75 + 6 x 1.8 GHz Cortex-A55)','Mediatek Helio G80 (12 nm)','Super AMOLED Capacitive Touchscreen, Multitouch',6.4,'1080 x 2400 Pixels (~411 PPI)','90Hz, 800 nits (peak)',128,6,5000,39999),(4,'Samsung','Galaxy A52','https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a52-4g.jpg','Android 11 OS, One UI 3.0',187,'Octa-core (2 x 2.3 GHz Kryo 465 Gold + 6 x 1.8 GHz Kryo 465 Silver)','Qualcomm SM7125 Snapdragon 720G (8 nm)','Super AMOLED Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'1080 x 2400 Pixels (~405 PPI)','90Hz, 800 nits (HBM)',128,8,4500,57999),(5,'Samsung','Galaxy A02','https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a02.jpg','Android 10 OS, OneUI 2.0',206,'1.5 Ghz Quad Core','Mediatek MT6739W (28 nm)','PLS IPS Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'720 x 1600 Pixels (~270 PPI)',NULL,32,3,5000,16699),(6,'Samsung','Galaxy A12','https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a12-sm-a125.jpg','Android 10.0 OS',205,'Octa-core (4 x 2.35 GHz Cortex-A53 + 4 x 1.8 GHz Cortex-A53)','Mediatek MT6765 Helio P35 (12nm)','PLS IPS Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'720 x 1600 Pixels (~270 PPI)',NULL,64,4,5000,27200),(7,'Samsung','Galaxy S21','https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-5g-r.jpg','Android 11 OS, One UI 3.1',171,'Octa-core (1 x 2.9 GHz Cortex-X1 + 3 x 2.80 GHz Cortex-A78 + 4 x 2.2 GHz Cortex-A55)','Exynos 2100 (5 nm)','Dynamic AMOLED 2X Capacitive Touchscreen, 16M Colors, Multitouch',6.2,'1080 x 2400 Pixels (~424 PPI)','Eye Comfort Shield, Always-on display, 120Hz, HDR10+, 1300 nits (peak)',128,8,4000,149999),(8,'Samsung','Galaxy S21 Ultra','https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s21-ultra-5g-.jpg','Android 11 OS, One UI 3.5',227,'Octa-core (1 x 2.9 GHz Cortex-X1 + 3 x 2.80 GHz Cortex-A78 + 4 x 2.2 GHz Cortex-A55)','Exynos 2100 (5 nm)','Dynamic AMOLED 2X Capacitive Touchscreen, 16M Colors, Multitouch',6.8,'1440 x 3200 Pixels (~516 PPI)','Always-on display, 120Hz, HDR10+, 1500 nits (peak)',256,12,5000,217000),(9,'Samsung','Galaxy M11','https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-m11-sm-m115.jpg','Android 10 OS',197,'1.8 Ghz Octa Core Cortex-A53','Qualcomm SDM450 Snapdragon 450 (14 nm)','PLS TFT Capacitive touchscreen, 16M Colors, Multitouch',6.4,'720 x 1560 Pixels (~268 PPI)',NULL,32,3,5000,24999),(10,'Samsung','Galaxy A01 Core','https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a01core-sm-a013.jpg','Android 10.0 (Go edition), OneUI 2.0',150,'1.5 Ghz Octa Core','Mediatek MT6739WW (28 nm)','PLS TFT Capacitive touchscreen, 16M Colors, Multitouch',5.3,'720 x 1480 Pixels (~311 PPI)',NULL,16,1,3000,13999),(11,'Samsung','Galaxy Note 5','https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-note5.jpg','Android OS, v5.11 (Lollipop), upgradable to v6.0.1 (Marshmallow)',171,'Octa-core (4 x 2.1 GHz Cortex-A57 + 4 x 1.5 GHz Cortex-A53)','Exynos 7420 Octa','Super Amoled Capacitive Touchscreen, 16M Colors, Multitouch',5.7,'1440 x 2560 Pixels (~515 PPI)',NULL,32,4,3000,49999),(12,'Huawei','Y7a','https://fdn2.gsmarena.com/vv/bigpic/huawei-p-smart-2021.jpg','Android 10.0 OS, EMUI 10.1',206,'Octa-core (4 x 2.0 GHz Cortex-A73 + 4 x 1.7 GHz Cortex-A53)','Kirin 710A (14 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.7,'1080 x 2400 Pixels (~395 PPI)',NULL,64,4,5000,35999),(13,'Huawei','Nova 8 Pro','https://fdn2.gsmarena.com/vv/bigpic/huawei-nova-8-pro-5g.jpg','Android 10.0 OS, EMUI 11',184,'Octa-core (1 x 2.58 GHz Cortex-A76 & 3x2.40 GHz Cortex-A76 + 4 x 1.84 GHz Cortex-A55)','Kirin 985 5G (7 nm)','OLED Capacitive Touchscreen, 1B Colors, Multitouch',6.72,'1080 x 2676 Pixels (~429 PPI)','HDR10, 120Hz',128,8,4000,97999),(14,'Huawei','Y9a','https://fdn2.gsmarena.com/vv/bigpic/huawei-y9a.jpg','Android 10.0 OS, EMUI 10.1',197,'Octa-core (2 x 2.0 GHz Cortex-A75 + 6 x 1.8 GHz Cortex-A55)','Mediatek Helio G80 (12 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.6,'1080 x 2400 Pixels (~397 PPI)',NULL,128,8,4200,43999),(15,'Huawei','Y5p','https://fdn2.gsmarena.com/vv/bigpic/huawei-y5p.jpg','Android 10 OS, EMUI 10.1',144,'Octa-core (4 x 2.0 GHz Cortex-A53 + 4 x 1.5 GHz Cortex-A53)','Mediatek MT6762R Helio P22 (12 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',5.45,'720 x 1440 Pixels (~295 PPI)',NULL,32,2,3020,14100),(16,'Huawei','Y8p','https://fdn2.gsmarena.com/vv/bigpic/huawei-enjoy-10s.jpg','Android 10 OS, EMUI 10.1',163,'Octa-core (4 x 2.2 GHz Cortex-A73 + 4 x 1.7 GHz Cortex-A53)','Kirin 710F (12 nm)','OLED Capacitive Touchscreen, 16M Colors, Multitouch',6.3,'1080 x 2400 Pixels (~418 PPI)',NULL,128,4,4000,32200),(17,'Huawei','Y6p','https://fdn2.gsmarena.com/vv/bigpic/huawei-y6p.jpg','Android 10.0 OS',185,'Octa-core (4 x 2.0 GHz Cortex-A53 + 4 x 1.5 GHz Cortex-A53)','Mediatek MT6762R Helio P22 (12 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.3,'720 x 1600 Pixels (~278 PPI)',NULL,64,3,5000,20899),(18,'Huawei','Y7p','https://fdn2.gsmarena.com/vv/bigpic/huawei-y7p-.jpg','Android 9.0 (Pie), (AOSP + HMS), EMUI 9.1',176,'Octa-core (4 x 2.2 GHz Cortex-A73 + 4 x 1.7 GHz Cortex-A53)','Hisilicon Kirin 710F (12 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.39,'720 x 1560 Pixels (~269 PPI)',NULL,64,4,4000,28999),(19,'Huawei','Y6s','https://fdn2.gsmarena.com/vv/bigpic/huawei-y6s.jpg','Android 9.0 (Pie), EMUI 9.1',150,'Octa-core (4 x 2.3 GHz Cortex-A53 + 4 x 1.8 GHz Cortex-A53)','Mediatek MT6765 Helio P35 (12nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.09,'720 x 1560 Pixels (~282 PPI)',NULL,64,3,3020,19800),(20,'Huawei','Mate 20 Pro','https://fdn2.gsmarena.com/vv/bigpic/huawei-mate-20-pro-1.jpg','Android 9.0 (Pie), EMUI 9.0',189,'Octa-core (2 x 2.6 GHz Cortex-A76 + 2 x 1.92 GHz Cortex-A76 + 4 x 1.8 GHz Cortex-A55)','HiSilicon Kirin 980 (7 nm)','AMOLED Capacitive Touchscreen, 16M Colors, Multitouch',6.4,'1440 x 3120 Pixels (~538 PPI)','HDR10 compliant,',128,6,4200,119999),(21,'Huawei','P30 Pro','https://fdn2.gsmarena.com/vv/bigpic/huawei-p30-pro.jpg','Android 9.0 (Pie), EMUI 8.1',192,'Octa-core (2 x 2.6 GHz Cortex-A76 + 2 x 1.92 GHz Cortex-A76 + 4 x 1.8 GHz Cortex-A55)','HiSilicon Kirin 980 (7 nm)','OLED Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'1080 x 2340 Pixels (~398 PPI)','DCI-P3',256,8,4200,157600),(22,'Apple','iPhone 11 Pro Max','https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11-pro.jpg','IOS 13',226,NULL,'Apple A13 (7 nm+)','Super Retina XDR OLED Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'1242 x 2688 Pixels (~456 PPI)','oleophobic coating, 800 nits, Dolby Vision, HDR10, Wide color, gamut, True-tone, 120 Hz touch-sensing',64,4,3500,226600),(23,'Apple','iPhone 12 Pro Max','https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12-pro-max-.jpg','IOS 14.1',228,'Hexa-core (2 x 3.1 GHz Firestorm + 4 x 1.8 GHz Icestorm)','Apple A14 Bionic (5 nm)','Super Retina XDR OLED Capacitive Touchscreen, 16M Colors, Multitouch',6.7,'1284 x 2778 Pixels (~457 PPI)','HDR10, 800 nits (typ), 1200 nits (peak), Dolby Vision, Wide color gamut, True-tone',128,6,3687,224499),(24,'Apple','iPhone 11 Pro','https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11-pro-max-.jpg','IOS 13',188,NULL,'Apple A13 (7 nm+)','Super Retina XDR OLED Capacitive Touchscreen, 16M Colors, Multitouch',5.8,'1125 x 2436 Pixels (~463 PPI)','800 nits, Dolby Vision, HDR10, Wide color, gamut, True-tone, 120 Hz touch-sensing',64,4,3190,207800),(25,'Apple','iPhone 12 Pro','https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12-pro--.jpg','IOS 14.1',189,'Hexa-core (2 x 3.1 GHz Firestorm + 4 x 1.8 GHz Icestorm)','Apple A14 Bionic (5 nm)','Super Retina XDR OLED Capacitive Touchscreen, 16M Colors, Multitouch',6.1,'1170 x 2532 Pixels (~457 PPI)','HDR10, 800 nits (typ), 1200 nits (peak), Dolby Vision, Wide color gamut, True-tone',128,6,2815,197099),(26,'Apple','iPhone XS Max','https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xs-max-new1.jpg','IOS 12',208,'Hexa Core','A12 Chipset Bionic','Super AMOLED capacitive touchscreen, 16M colors, Multitouch',6.5,'1242 x 2688 Pixels (~456 PPI)','Dolby Vision/HDR10 compliant, Wide color gamut display, 3D Touch display, True-tone display, 120 Hz touch-sensing',64,4,3174,167499),(27,'Apple','iPhone 12','https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-12.jpg','IOS 14.1',164,'Hexa-core (2 x 3.1 GHz Firestorm + 4 x 1.8 GHz Icestorm)','Apple A14 Bionic (5 nm)','Super Retina XDR OLED Capacitive Touchscreen, 16M Colors, Multitouch',6.1,'1170 x 2532 Pixels (~457 PPI)','HDR10, 625 nits (typ), 1200 nits (peak), Dolby Vision, Wide color gamut, True-tone',64,4,2815,157499),(28,'Apple','iPhone 11','https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-11.jpg','IOS 13',189,NULL,'Apple A13 (7 nm+)','Liquid Retina IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.1,'828 x 1792 Pixels (~324 PPI)','625 nits, Dolby Vision, HDR10, True-tone, Wide color gamut, 120 Hz touch-sensing',64,4,3110,156300),(29,'Apple','iPhone XR','https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-xr-new.jpg','IOS 12',194,'Hexa Core','A12 Chipset Bionic','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.1,'828 x 1792 Pixels (~324 PPI)','True-tone display, Wide color gamut display, 120 Hz touch-sensing',64,3,2942,151799),(30,'Apple','iPhone7 Plus 128GB','https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-7-plus-r2.jpg','iOS 10.01 upgradable to iOS 10.0.2',188,'Quad-core 2.34 GHz (2 x Hurricane & 2 x Zephyr)','Apple A10 Fusion','LED-backlit IPS LCD, capacitive touchscreen, 16M colors, Multitouch',5.5,'1080 x 1920 pixels (~326 ppi pixel density)','Wide Gamut display, 3D Touch display + home button, Display Zoom',128,3,2900,144999),(31,'Apple','iPhone X','https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-x.jpg','IOS 11',174,'Hexa Core (2 x Monsoon + 4 x Mistral)','Apple A11 Bionic','Super AMOLED capacitive touchscreen, 16M colors, Multitouch',5.8,'1125 x 2436 Pixels (~463 PPI)','Dolby Vision/HDR10 compliant, Wide color gamut display, 3D Touch display, True-tone display',64,3,2716,144999),(32,'Xiaomi','Poco M3 Pro','https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-m3-pro-5g.jpg','Android 11 OS, MIUI 12',190,'Octa-core (2 x 2.2 GHz Cortex-A76 + 6 x 2.0 GHz Cortex-A55)','MediaTek MT6833 Dimensity 700 5G (7 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'1080 x 2400 Pixels (~405 PPI)','90Hz, 400 nits (typ)',128,6,5000,32999),(33,'Xiaomi','Mi 11','https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi11.jpg','Android 11 OS, MIUI 12',196,'Octa-core (1 x 2.84 GHz Kryo 680 + 3 x 2.42 GHz Kryo 680 + 4 x 1.80 GHz Kryo 680','Qualcomm SM8350 Snapdragon 888 (5 nm)','AMOLED Capacitive Touchscreen, 1B Colors, Multitouch',6.81,'1440 x 3200 Pixels (~515 PPI)','120Hz, HDR10+, 1500 nits (peak)',256,8,4600,144999),(34,'Xiaomi','Mi 11 Lite','https://fdn2.gsmarena.com/vv/bigpic/xiaomi-mi-11-lite-4g.jpg','Android 11 OS, MIUI 12',157,'Octa-core (2 x 2.3 GHz Kryo 470 Gold + 6 x 1.8 GHz Kryo 470 Silver)','Qualcomm SM7150 Snapdragon 732G (8 nm)','AMOLED Capacitive Touchscreen, 1B Colors, Multitouch',6.55,'1080 x 2400 Pixels (~402 PPI)',NULL,128,6,4250,43999),(35,'Xiaomi','Redmi Note 10S 8GB','https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note10s.jpg','Android 11 OS',178,'Octa-core (2 x 2.05 GHz Cortex-A76 + 6 x 2.0 GHz Cortex-A55)','Mediatek Helio G95 (12 nm)','AMOLED Capacitive Touchscreen, Multitouch',6.43,'1080 x 2400 Pixels (~409 PPI)','450 nits (typ), 1100 nits (peak)',128,8,5000,39999),(36,'Xiaomi','Poco F3 8GB','https://fdn2.gsmarena.com/vv/bigpic/xiaomi-poco-f3.jpg','Android 11 OS, MIUI 12',196,'Octa-core (1 x 3.2 GHz Kryo 585 + 3 x 2.42 GHz Kryo 585 + 4 x 1.80 GHz Kryo 585)','Qualcomm SM8250-AC Snapdragon 870 5G (7 nm)','AMOLED Capacitive Touchscreen, Multitouch',6.67,'1080 x 2400 Pixels (~395 PPI)','120Hz, HDR10+, 1300 nits (peak)',256,8,4520,65999),(37,'Xiaomi','Redmi Note 10 Pro 8GB','https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note10-pro.jpg','Android 11 OS, MIUI 12',192,'Octa-core (2 x 2.3 GHz Kryo 470 Gold + 6 x 1.8 GHz Kryo 470 Silver)','Qualcomm SM7150 Snapdragon 732G (8 nm)','AMOLED Capacitive Touchscreen, Multitouch',6.67,'1080 x 2400 Pixels (~395 PPI)','120Hz, HDR10, 450 nits (typ), 1200 nits (peak)',128,8,5020,47999),(38,'Xiaomi','Redmi Note 9','https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note-9.jpg','Android 10 OS, MIUI 11',198,'Octa-core (2 x 2.0 GHz Cortex-A75 + 6 x 1.8 GHz Cortex-A55)','MediaTek Helio G85 (12nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.53,'1080 x 2340 Pixels (~395 PPI)','450 nits typ. brightness (advertised)',128,4,5020,31999),(39,'Xiaomi','Redmi Note 10','https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-note10--.jpg','Android 11 OS, MIUI 12',178,'Octa-core (2 x 2.2 GHz Kryo 460 Gold + 6 x 1.7 GHz Kryo 460 Silver)','Qualcomm SDM678 Snapdragon 678 (11 nm)','Super AMOLED Capacitive Touchscreen, Multitouch',6.44,'1080 x 2400 Pixels (~409 PPI)','450 nits (typ), 1100 nits (peak)',128,4,5000,31999),(40,'Xiaomi','Redmi 9T 6GB','https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-9-power.jpg','Android 10 OS, MIUI 12',198,'Octa-core (4 x 2.0 GHz Kryo 260 Gold + 4 x 1.8 GHz Kryo 260 Silver)','Qualcomm Snapdragon 662 (11nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'1080 x 2340 Pixels (~395 PPI)','400 nits typ. brightness (advertised)',128,6,6000,31999),(41,'Xiaomi','Redmi 9','https://fdn2.gsmarena.com/vv/bigpic/xiaomi-redmi-9-power.jpg','Android 10 OS, MIUI 12',198,'Octa-core (2 x 2.0 GHz Cortex-A75 + 6 x 1.8 GHz Cortex-A55)','Mediatek Helio G80 (12 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.53,'1080 x 2340 Pixels (~395 PPI)','400 nits typ. brightness (advertised)',64,4,5000,26499);
 /*!40000 ALTER TABLE `phone` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -200,15 +212,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `phone_camera`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `phone_camera` (
-  `phone_id` int unsigned DEFAULT NULL,
-  `camera_id` int unsigned DEFAULT NULL,
+  `phone_id` int(10) unsigned DEFAULT NULL,
+  `camera_id` int(10) unsigned DEFAULT NULL,
   KEY `phone_id` (`phone_id`),
   KEY `camera_id` (`camera_id`),
   CONSTRAINT `phone_camera_ibfk_1` FOREIGN KEY (`phone_id`) REFERENCES `phone` (`id`),
   CONSTRAINT `phone_camera_ibfk_2` FOREIGN KEY (`camera_id`) REFERENCES `camera` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -217,7 +229,7 @@ CREATE TABLE `phone_camera` (
 
 LOCK TABLES `phone_camera` WRITE;
 /*!40000 ALTER TABLE `phone_camera` DISABLE KEYS */;
-INSERT INTO `phone_camera` VALUES (155,43),(155,43),(155,43),(155,44),(155,44),(156,45),(156,46),(156,47),(156,47),(156,48),(157,45),(157,43),(157,47),(157,47),(157,49),(158,50),(158,51),(158,52),(159,53),(159,47),(159,51),(159,51),(159,54),(160,43),(160,45),(160,43),(160,44),(161,55),(161,56),(161,56),(161,43),(161,57),(162,50),(162,47),(162,51),(162,54),(163,46),(163,52),(164,58),(164,59),(165,53),(165,46),(165,51),(165,51),(165,54),(166,45),(166,46),(166,51),(166,51),(166,60),(166,49),(167,45),(167,46),(167,51),(167,51),(167,60),(168,46),(168,52),(169,53),(169,46),(169,51),(169,60),(170,50),(170,47),(170,51),(170,54),(171,53),(171,46),(171,51),(171,54),(172,50),(172,54),(173,61),(173,62),(173,46),(173,63),(174,61),(174,62),(174,46),(174,64),(174,49),(175,43),(175,43),(175,43),(175,65),(176,43),(176,43),(176,43),(176,64),(176,65),(177,43),(177,43),(177,43),(177,65),(178,43),(178,43),(178,43),(178,64),(178,65),(179,43),(179,43),(179,66),(180,43),(180,43),(180,65),(181,43),(181,43),(181,65),(182,43),(182,66),(183,43),(183,43),(183,66),(184,43),(184,66),(185,53),(185,51),(185,51),(185,54),(186,55),(186,50),(186,47),(186,48),(187,45),(187,46),(187,47),(187,60),(188,45),(188,46),(188,51),(188,51),(188,67),(189,53),(189,46),(189,47),(189,48),(190,55),(190,46),(190,47),(190,51),(190,60),(191,53),(191,46),(191,51),(191,51),(191,67),(192,53),(192,46),(192,51),(192,51),(192,67),(193,53),(193,46),(193,51),(193,51),(193,54),(194,50),(194,46),(194,47),(194,51),(194,54),(195,45),(195,46),(195,43),(195,47),(195,49);
+INSERT INTO `phone_camera` VALUES (2,4),(2,5),(2,2),(2,6),(2,7),(3,4),(3,5),(3,6),(3,6),(3,8),(4,4),(4,2),(4,6),(4,6),(4,7),(5,9),(5,1),(5,10),(6,11),(6,6),(6,1),(6,1),(6,12),(7,2),(7,4),(7,2),(7,3),(8,13),(8,14),(8,14),(8,2),(8,15),(9,9),(9,6),(9,1),(9,12),(10,5),(10,10),(11,16),(11,17),(12,11),(12,5),(12,1),(12,1),(12,12),(13,4),(13,5),(13,1),(13,1),(13,18),(13,7),(14,4),(14,5),(14,1),(14,1),(14,18),(15,5),(15,10),(16,11),(16,5),(16,1),(16,18),(17,9),(17,6),(17,1),(17,12),(18,11),(18,5),(18,1),(18,12),(19,9),(19,12),(20,19),(20,20),(20,5),(20,21),(21,19),(21,20),(21,5),(21,22),(21,7),(22,2),(22,2),(22,2),(22,23),(23,2),(23,2),(23,2),(23,22),(23,23),(24,2),(24,2),(24,2),(24,23),(25,2),(25,2),(25,2),(25,22),(25,23),(26,2),(26,2),(26,24),(27,2),(27,2),(27,23),(28,2),(28,2),(28,23),(29,2),(29,24),(30,2),(30,2),(30,24),(31,2),(31,24),(32,11),(32,1),(32,1),(32,12),(33,13),(33,9),(33,6),(33,8),(34,4),(34,5),(34,6),(34,18),(35,4),(35,5),(35,1),(35,1),(35,25),(36,11),(36,5),(36,6),(36,8),(37,13),(37,5),(37,6),(37,1),(37,18),(38,11),(38,5),(38,1),(38,1),(38,25),(39,11),(39,5),(39,1),(39,1),(39,25),(40,11),(40,5),(40,1),(40,1),(40,12),(41,9),(41,5),(41,6),(41,1),(41,12),(1,2),(1,2),(1,2),(1,3);
 /*!40000 ALTER TABLE `phone_camera` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,15 +239,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `phone_color`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `phone_color` (
-  `phone_id` int unsigned DEFAULT NULL,
-  `color_id` int unsigned DEFAULT NULL,
+  `phone_id` int(10) unsigned DEFAULT NULL,
+  `color_id` int(10) unsigned DEFAULT NULL,
   KEY `phone_id` (`phone_id`),
   KEY `color_id` (`color_id`),
   CONSTRAINT `phone_color_ibfk_1` FOREIGN KEY (`phone_id`) REFERENCES `phone` (`id`),
   CONSTRAINT `phone_color_ibfk_2` FOREIGN KEY (`color_id`) REFERENCES `color` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -244,7 +256,7 @@ CREATE TABLE `phone_color` (
 
 LOCK TABLES `phone_color` WRITE;
 /*!40000 ALTER TABLE `phone_color` DISABLE KEYS */;
-INSERT INTO `phone_color` VALUES (155,110),(155,111),(156,112),(156,113),(156,114),(156,115),(157,112),(157,113),(157,114),(157,115),(158,116),(158,117),(159,116),(159,118),(159,117),(159,119),(160,120),(160,121),(160,122),(160,123),(161,124),(161,125),(162,116),(162,126),(162,127),(163,116),(163,117),(163,119),(164,128),(164,129),(164,130),(164,131),(165,132),(165,133),(165,134),(166,116),(166,117),(166,135),(166,118),(167,132),(167,136),(167,137),(168,138),(168,132),(168,139),(169,140),(169,132),(170,116),(170,135),(170,141),(171,132),(171,142),(172,143),(172,144),(173,145),(173,146),(173,147),(173,148),(173,116),(174,149),(174,150),(174,140),(174,116),(175,151),(175,152),(175,153),(175,154),(176,152),(176,155),(176,153),(176,156),(177,151),(177,152),(177,153),(177,154),(178,152),(178,155),(178,153),(178,156),(179,151),(179,152),(179,153),(180,116),(180,118),(180,119),(180,135),(180,117),(181,116),(181,135),(181,157),(181,141),(181,119),(181,118),(182,116),(182,119),(182,157),(182,117),(182,158),(183,159),(183,116),(183,152),(183,153),(183,160),(184,151),(184,152),(185,116),(185,117),(185,161),(186,162),(186,163),(186,164),(186,165),(186,153),(186,127),(187,166),(187,167),(187,168),(188,169),(188,170),(188,171),(189,172),(189,173),(189,174),(190,175),(190,176),(190,177),(191,117),(191,116),(191,118),(192,175),(192,178),(192,179),(193,180),(193,181),(193,182),(193,183),(194,180),(194,184),(194,183),(195,112),(195,113),(195,114),(195,115);
+INSERT INTO `phone_color` VALUES (2,3),(2,4),(2,5),(2,6),(3,3),(3,4),(3,5),(3,6),(4,3),(4,4),(4,5),(4,6),(5,7),(5,8),(6,7),(6,9),(6,8),(6,10),(7,11),(7,12),(7,13),(7,14),(8,15),(8,16),(9,7),(9,17),(9,18),(10,7),(10,8),(10,10),(11,19),(11,20),(11,21),(11,22),(12,23),(12,24),(12,25),(13,7),(13,8),(13,26),(13,9),(14,23),(14,27),(14,28),(15,29),(15,23),(15,30),(16,31),(16,23),(17,7),(17,26),(17,32),(18,23),(18,33),(19,34),(19,35),(20,36),(20,37),(20,38),(20,39),(20,7),(21,40),(21,41),(21,31),(21,7),(22,42),(22,43),(22,44),(22,45),(23,43),(23,46),(23,44),(23,47),(24,42),(24,43),(24,44),(24,45),(25,43),(25,46),(25,44),(25,47),(26,42),(26,43),(26,44),(27,7),(27,9),(27,10),(27,26),(27,8),(28,7),(28,26),(28,48),(28,32),(28,10),(28,9),(29,7),(29,10),(29,48),(29,8),(29,49),(30,50),(30,7),(30,43),(30,44),(30,51),(31,42),(31,43),(32,7),(32,8),(32,52),(33,53),(33,54),(33,55),(33,56),(33,44),(33,18),(34,57),(34,58),(34,59),(35,60),(35,61),(35,62),(36,63),(36,64),(36,65),(37,66),(37,67),(37,68),(38,8),(38,7),(38,9),(39,66),(39,69),(39,70),(40,71),(40,72),(40,73),(40,74),(41,71),(41,75),(41,74),(1,1),(1,2);
 /*!40000 ALTER TABLE `phone_color` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -254,15 +266,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `phone_sensor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `phone_sensor` (
-  `sensor_id` int unsigned DEFAULT NULL,
-  `phone_id` int unsigned DEFAULT NULL,
+  `sensor_id` int(10) unsigned DEFAULT NULL,
+  `phone_id` int(10) unsigned DEFAULT NULL,
   KEY `phone_id` (`phone_id`),
   KEY `sensor_id` (`sensor_id`),
   CONSTRAINT `phone_sensor_ibfk_1` FOREIGN KEY (`phone_id`) REFERENCES `phone` (`id`),
   CONSTRAINT `phone_sensor_ibfk_2` FOREIGN KEY (`sensor_id`) REFERENCES `sensor` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -271,7 +283,7 @@ CREATE TABLE `phone_sensor` (
 
 LOCK TABLES `phone_sensor` WRITE;
 /*!40000 ALTER TABLE `phone_sensor` DISABLE KEYS */;
-INSERT INTO `phone_sensor` VALUES (51,155),(52,155),(53,155),(54,155),(55,155),(56,155),(51,156),(53,156),(54,156),(56,156),(51,157),(53,157),(54,157),(55,157),(56,157),(51,158),(56,158),(51,159),(54,159),(56,159),(51,160),(52,160),(53,160),(54,160),(55,160),(56,160),(57,160),(51,161),(52,161),(53,161),(54,161),(55,161),(56,161),(51,162),(54,162),(56,162),(51,163),(51,164),(52,164),(53,164),(54,164),(55,164),(58,164),(56,164),(57,164),(51,165),(53,165),(54,165),(56,165),(51,166),(53,166),(54,166),(55,166),(56,166),(51,167),(53,167),(54,167),(55,167),(56,167),(51,168),(56,168),(51,169),(53,169),(54,169),(56,169),(51,170),(54,170),(56,170),(51,171),(53,171),(54,171),(56,171),(51,172),(54,172),(56,172),(51,173),(52,173),(53,173),(59,173),(54,173),(55,173),(56,173),(60,174),(61,174),(53,174),(54,174),(55,174),(56,174),(51,175),(59,175),(52,175),(53,175),(55,175),(56,175),(51,176),(52,176),(53,176),(59,176),(55,176),(56,176),(51,177),(59,177),(52,177),(53,177),(55,177),(56,177),(51,178),(53,178),(59,178),(55,178),(56,178),(51,179),(52,179),(53,179),(55,179),(56,179),(51,180),(53,180),(59,180),(55,180),(56,180),(51,181),(59,181),(52,181),(53,181),(55,181),(56,181),(51,182),(52,182),(53,182),(59,182),(55,182),(56,182),(51,183),(55,183),(56,183),(53,183),(52,183),(62,183),(51,184),(59,184),(52,184),(53,184),(55,184),(56,184),(51,185),(53,185),(54,185),(56,185),(51,186),(53,186),(54,186),(55,186),(56,186),(51,187),(53,187),(54,187),(55,187),(56,187),(51,188),(53,188),(54,188),(55,188),(56,188),(51,189),(63,189),(53,189),(54,189),(55,189),(56,189),(51,190),(53,190),(54,190),(55,190),(56,190),(51,191),(53,191),(54,191),(56,191),(51,192),(53,192),(54,192),(55,192),(56,192),(51,193),(54,193),(55,193),(56,193),(51,194),(54,194),(55,194),(56,194),(51,195),(55,195),(56,195),(53,195),(54,195);
+INSERT INTO `phone_sensor` VALUES (1,2),(5,2),(6,2),(3,2),(4,2),(1,3),(3,3),(4,3),(6,3),(1,4),(3,4),(4,4),(5,4),(6,4),(1,5),(6,5),(1,6),(4,6),(6,6),(1,7),(2,7),(3,7),(4,7),(5,7),(6,7),(7,7),(1,8),(2,8),(3,8),(4,8),(5,8),(6,8),(1,9),(4,9),(6,9),(1,10),(1,11),(2,11),(3,11),(4,11),(5,11),(8,11),(6,11),(7,11),(1,12),(3,12),(4,12),(6,12),(1,13),(3,13),(4,13),(5,13),(6,13),(1,14),(3,14),(4,14),(5,14),(6,14),(1,15),(6,15),(1,16),(3,16),(4,16),(6,16),(1,17),(4,17),(6,17),(1,18),(3,18),(4,18),(6,18),(1,19),(4,19),(6,19),(1,20),(2,20),(3,20),(9,20),(4,20),(5,20),(6,20),(10,21),(11,21),(3,21),(4,21),(5,21),(6,21),(1,22),(9,22),(2,22),(3,22),(5,22),(6,22),(1,23),(2,23),(3,23),(9,23),(5,23),(6,23),(1,24),(9,24),(2,24),(3,24),(5,24),(6,24),(1,25),(3,25),(9,25),(5,25),(6,25),(1,26),(2,26),(3,26),(5,26),(6,26),(1,27),(3,27),(9,27),(5,27),(6,27),(1,28),(9,28),(2,28),(3,28),(5,28),(6,28),(1,29),(2,29),(3,29),(9,29),(5,29),(6,29),(1,30),(5,30),(6,30),(3,30),(2,30),(4,30),(1,31),(9,31),(2,31),(3,31),(5,31),(6,31),(1,32),(3,32),(4,32),(6,32),(1,33),(3,33),(4,33),(5,33),(6,33),(1,34),(3,34),(4,34),(5,34),(6,34),(1,35),(3,35),(4,35),(5,35),(6,35),(1,36),(12,36),(3,36),(4,36),(5,36),(6,36),(1,37),(3,37),(4,37),(5,37),(6,37),(1,38),(3,38),(4,38),(6,38),(1,39),(3,39),(4,39),(5,39),(6,39),(1,40),(4,40),(5,40),(6,40),(1,41),(4,41),(5,41),(6,41),(1,1),(2,1),(3,1),(4,1),(5,1),(6,1);
 /*!40000 ALTER TABLE `phone_sensor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -281,18 +293,18 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `review`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `review` (
   `review_text` varchar(255) DEFAULT NULL,
-  `rating` int unsigned NOT NULL,
+  `rating` int(10) unsigned NOT NULL,
   `submission_date_time` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `phone_id` int unsigned DEFAULT NULL,
+  `phone_id` int(10) unsigned DEFAULT NULL,
   `username` varchar(30) DEFAULT NULL,
   KEY `phone_id` (`phone_id`),
   KEY `username` (`username`),
   CONSTRAINT `review_ibfk_1` FOREIGN KEY (`phone_id`) REFERENCES `phone` (`id`),
   CONSTRAINT `review_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -310,12 +322,12 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `sensor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sensor` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `sensor_name` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -324,44 +336,8 @@ CREATE TABLE `sensor` (
 
 LOCK TABLES `sensor` WRITE;
 /*!40000 ALTER TABLE `sensor` DISABLE KEYS */;
-INSERT INTO `sensor` VALUES (51,'Accelerometer'),(52,' Barometer'),(53,' Compass'),(54,' Fingerprint '),(55,' Gyro'),(56,' Proximity'),(57,' SpO2'),(58,' HeartRate'),(59,' Face ID'),(60,'Face ID'),(61,' Accelerometer'),(62,' Fingerprint'),(63,' color spectrum');
+INSERT INTO `sensor` VALUES (1,'Accelerometer'),(2,' Barometer'),(3,' Compass'),(4,' Fingerprint '),(5,' Gyro'),(6,' Proximity'),(7,' SpO2'),(8,' HeartRate'),(9,' Face ID'),(10,'Face ID'),(11,' Accelerometer'),(12,' color spectrum');
 /*!40000 ALTER TABLE `sensor` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `specification`
---
-
-DROP TABLE IF EXISTS `specification`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `specification` (
-  `phone_id` int unsigned DEFAULT NULL,
-  `os` varchar(100) DEFAULT NULL,
-  `weight_grams` int unsigned DEFAULT NULL,
-  `cpu` varchar(255) DEFAULT NULL,
-  `chipset` varchar(255) DEFAULT NULL,
-  `display_technology` varchar(255) DEFAULT NULL,
-  `screen_size_inches` float DEFAULT NULL,
-  `display_resolution` varchar(50) DEFAULT NULL,
-  `extra_display_features` varchar(255) DEFAULT NULL,
-  `built_in_memory_GB` int unsigned DEFAULT NULL,
-  `ram_GB` int unsigned DEFAULT NULL,
-  `battery_capacity_mah` int unsigned DEFAULT NULL,
-  `price_rupees` int unsigned DEFAULT NULL,
-  KEY `phone_id` (`phone_id`),
-  CONSTRAINT `specification_ibfk_1` FOREIGN KEY (`phone_id`) REFERENCES `phone` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `specification`
---
-
-LOCK TABLES `specification` WRITE;
-/*!40000 ALTER TABLE `specification` DISABLE KEYS */;
-INSERT INTO `specification` VALUES (155,'Android 10 OS, One UI 2.1',279,'Octa-core (1 x 3.09 GHz Kryo 585 + 3 x 2.42 GHz Kryo 585 + 4 x 1.8 GHz Kryo 585)','Qualcomm SM8250 Snapdragon 865+ (7 nm+)','Foldable Dynamic AMOLED 2X Capacitive Touchscreen, 16M Colors, Multitouch',7.6,'1536 x 2208 Pixels (~354 PPI)','HDR10+, 120Hz refresh rate, Cover display: 6.23, Super AMOLED, (816 x 2260 pixels) + (25:9)',256,12,4500,269999),(156,'Android 11 OS, One UI 3.0',184,'Octa-core (2 x 2.0 GHz Cortex-A75 + 6 x 1.8 GHz Cortex-A55)','Mediatek Helio G80 (12 nm)','Super AMOLED Capacitive Touchscreen, Multitouch',6.4,'1080 x 2400 Pixels (~411 PPI)','90Hz, 800 nits (peak)',128,6,5000,39999),(157,'Android 11 OS, One UI 3.0',187,'Octa-core (2 x 2.3 GHz Kryo 465 Gold + 6 x 1.8 GHz Kryo 465 Silver)','Qualcomm SM7125 Snapdragon 720G (8 nm)','Super AMOLED Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'1080 x 2400 Pixels (~405 PPI)','90Hz, 800 nits (HBM)',128,8,4500,57999),(158,'Android 10 OS, OneUI 2.0',206,'1.5 Ghz Quad Core','Mediatek MT6739W (28 nm)','PLS IPS Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'720 x 1600 Pixels (~270 PPI)',NULL,32,3,5000,16699),(159,'Android 10.0 OS',205,'Octa-core (4 x 2.35 GHz Cortex-A53 + 4 x 1.8 GHz Cortex-A53)','Mediatek MT6765 Helio P35 (12nm)','PLS IPS Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'720 x 1600 Pixels (~270 PPI)',NULL,64,4,5000,27200),(160,'Android 11 OS, One UI 3.1',171,'Octa-core (1 x 2.9 GHz Cortex-X1 + 3 x 2.80 GHz Cortex-A78 + 4 x 2.2 GHz Cortex-A55)','Exynos 2100 (5 nm)','Dynamic AMOLED 2X Capacitive Touchscreen, 16M Colors, Multitouch',6.2,'1080 x 2400 Pixels (~424 PPI)','Eye Comfort Shield, Always-on display, 120Hz, HDR10+, 1300 nits (peak)',128,8,4000,149999),(161,'Android 11 OS, One UI 3.5',227,'Octa-core (1 x 2.9 GHz Cortex-X1 + 3 x 2.80 GHz Cortex-A78 + 4 x 2.2 GHz Cortex-A55)','Exynos 2100 (5 nm)','Dynamic AMOLED 2X Capacitive Touchscreen, 16M Colors, Multitouch',6.8,'1440 x 3200 Pixels (~516 PPI)','Always-on display, 120Hz, HDR10+, 1500 nits (peak)',256,12,5000,217000),(162,'Android 10 OS',197,'1.8 Ghz Octa Core Cortex-A53','Qualcomm SDM450 Snapdragon 450 (14 nm)','PLS TFT Capacitive touchscreen, 16M Colors, Multitouch',6.4,'720 x 1560 Pixels (~268 PPI)',NULL,32,3,5000,24999),(163,'Android 10.0 (Go edition), OneUI 2.0',150,'1.5 Ghz Octa Core','Mediatek MT6739WW (28 nm)','PLS TFT Capacitive touchscreen, 16M Colors, Multitouch',5.3,'720 x 1480 Pixels (~311 PPI)',NULL,16,1,3000,13999),(164,'Android OS, v5.11 (Lollipop), upgradable to v6.0.1 (Marshmallow)',171,'Octa-core (4 x 2.1 GHz Cortex-A57 + 4 x 1.5 GHz Cortex-A53)','Exynos 7420 Octa','Super Amoled Capacitive Touchscreen, 16M Colors, Multitouch',5.7,'1440 x 2560 Pixels (~515 PPI)',NULL,32,4,3000,49999),(165,'Android 10.0 OS, EMUI 10.1',206,'Octa-core (4 x 2.0 GHz Cortex-A73 + 4 x 1.7 GHz Cortex-A53)','Kirin 710A (14 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.7,'1080 x 2400 Pixels (~395 PPI)',NULL,64,4,5000,35999),(166,'Android 10.0 OS, EMUI 11',184,'Octa-core (1 x 2.58 GHz Cortex-A76 & 3x2.40 GHz Cortex-A76 + 4 x 1.84 GHz Cortex-A55)','Kirin 985 5G (7 nm)','OLED Capacitive Touchscreen, 1B Colors, Multitouch',6.72,'1080 x 2676 Pixels (~429 PPI)','HDR10, 120Hz',128,8,4000,97999),(167,'Android 10.0 OS, EMUI 10.1',197,'Octa-core (2 x 2.0 GHz Cortex-A75 + 6 x 1.8 GHz Cortex-A55)','Mediatek Helio G80 (12 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.6,'1080 x 2400 Pixels (~397 PPI)',NULL,128,8,4200,43999),(168,'Android 10 OS, EMUI 10.1',144,'Octa-core (4 x 2.0 GHz Cortex-A53 + 4 x 1.5 GHz Cortex-A53)','Mediatek MT6762R Helio P22 (12 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',5.45,'720 x 1440 Pixels (~295 PPI)',NULL,32,2,3020,14100),(169,'Android 10 OS, EMUI 10.1',163,'Octa-core (4 x 2.2 GHz Cortex-A73 + 4 x 1.7 GHz Cortex-A53)','Kirin 710F (12 nm)','OLED Capacitive Touchscreen, 16M Colors, Multitouch',6.3,'1080 x 2400 Pixels (~418 PPI)',NULL,128,4,4000,32200),(170,'Android 10.0 OS',185,'Octa-core (4 x 2.0 GHz Cortex-A53 + 4 x 1.5 GHz Cortex-A53)','Mediatek MT6762R Helio P22 (12 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.3,'720 x 1600 Pixels (~278 PPI)',NULL,64,3,5000,20899),(171,'Android 9.0 (Pie), (AOSP + HMS), EMUI 9.1',176,'Octa-core (4 x 2.2 GHz Cortex-A73 + 4 x 1.7 GHz Cortex-A53)','Hisilicon Kirin 710F (12 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.39,'720 x 1560 Pixels (~269 PPI)',NULL,64,4,4000,28999),(172,'Android 9.0 (Pie), EMUI 9.1',150,'Octa-core (4 x 2.3 GHz Cortex-A53 + 4 x 1.8 GHz Cortex-A53)','Mediatek MT6765 Helio P35 (12nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.09,'720 x 1560 Pixels (~282 PPI)',NULL,64,3,3020,19800),(173,'Android 9.0 (Pie), EMUI 9.0',189,'Octa-core (2 x 2.6 GHz Cortex-A76 + 2 x 1.92 GHz Cortex-A76 + 4 x 1.8 GHz Cortex-A55)','HiSilicon Kirin 980 (7 nm)','AMOLED Capacitive Touchscreen, 16M Colors, Multitouch',6.4,'1440 x 3120 Pixels (~538 PPI)','HDR10 compliant,',128,6,4200,119999),(174,'Android 9.0 (Pie), EMUI 8.1',192,'Octa-core (2 x 2.6 GHz Cortex-A76 + 2 x 1.92 GHz Cortex-A76 + 4 x 1.8 GHz Cortex-A55)','HiSilicon Kirin 980 (7 nm)','OLED Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'1080 x 2340 Pixels (~398 PPI)','DCI-P3',256,8,4200,157600),(175,'IOS 13',226,NULL,'Apple A13 (7 nm+)','Super Retina XDR OLED Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'1242 x 2688 Pixels (~456 PPI)','oleophobic coating, 800 nits, Dolby Vision, HDR10, Wide color, gamut, True-tone, 120 Hz touch-sensing',64,4,3500,226600),(176,'IOS 14.1',228,'Hexa-core (2 x 3.1 GHz Firestorm + 4 x 1.8 GHz Icestorm)','Apple A14 Bionic (5 nm)','Super Retina XDR OLED Capacitive Touchscreen, 16M Colors, Multitouch',6.7,'1284 x 2778 Pixels (~457 PPI)','HDR10, 800 nits (typ), 1200 nits (peak), Dolby Vision, Wide color gamut, True-tone',128,6,3687,224499),(177,'IOS 13',188,NULL,'Apple A13 (7 nm+)','Super Retina XDR OLED Capacitive Touchscreen, 16M Colors, Multitouch',5.8,'1125 x 2436 Pixels (~463 PPI)','800 nits, Dolby Vision, HDR10, Wide color, gamut, True-tone, 120 Hz touch-sensing',64,4,3190,207800),(178,'IOS 14.1',189,'Hexa-core (2 x 3.1 GHz Firestorm + 4 x 1.8 GHz Icestorm)','Apple A14 Bionic (5 nm)','Super Retina XDR OLED Capacitive Touchscreen, 16M Colors, Multitouch',6.1,'1170 x 2532 Pixels (~457 PPI)','HDR10, 800 nits (typ), 1200 nits (peak), Dolby Vision, Wide color gamut, True-tone',128,6,2815,197099),(179,'IOS 12',208,'Hexa Core','A12 Chipset Bionic','Super AMOLED capacitive touchscreen, 16M colors, Multitouch',6.5,'1242 x 2688 Pixels (~456 PPI)','Dolby Vision/HDR10 compliant, Wide color gamut display, 3D Touch display, True-tone display, 120 Hz touch-sensing',64,4,3174,167499),(180,'IOS 14.1',164,'Hexa-core (2 x 3.1 GHz Firestorm + 4 x 1.8 GHz Icestorm)','Apple A14 Bionic (5 nm)','Super Retina XDR OLED Capacitive Touchscreen, 16M Colors, Multitouch',6.1,'1170 x 2532 Pixels (~457 PPI)','HDR10, 625 nits (typ), 1200 nits (peak), Dolby Vision, Wide color gamut, True-tone',64,4,2815,157499),(181,'IOS 13',189,NULL,'Apple A13 (7 nm+)','Liquid Retina IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.1,'828 x 1792 Pixels (~324 PPI)','625 nits, Dolby Vision, HDR10, True-tone, Wide color gamut, 120 Hz touch-sensing',64,4,3110,156300),(182,'IOS 12',194,'Hexa Core','A12 Chipset Bionic','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.1,'828 x 1792 Pixels (~324 PPI)','True-tone display, Wide color gamut display, 120 Hz touch-sensing',64,3,2942,151799),(183,'iOS 10.01 upgradable to iOS 10.0.2',188,'Quad-core 2.34 GHz (2 x Hurricane & 2 x Zephyr)','Apple A10 Fusion','LED-backlit IPS LCD, capacitive touchscreen, 16M colors, Multitouch',5.5,'1080 x 1920 pixels (~326 ppi pixel density)','Wide Gamut display, 3D Touch display + home button, Display Zoom',128,3,2900,144999),(184,'IOS 11',174,'Hexa Core (2 x Monsoon + 4 x Mistral)','Apple A11 Bionic','Super AMOLED capacitive touchscreen, 16M colors, Multitouch',5.8,'1125 x 2436 Pixels (~463 PPI)','Dolby Vision/HDR10 compliant, Wide color gamut display, 3D Touch display, True-tone display',64,3,2716,144999),(185,'Android 11 OS, MIUI 12',190,'Octa-core (2 x 2.2 GHz Cortex-A76 + 6 x 2.0 GHz Cortex-A55)','MediaTek MT6833 Dimensity 700 5G (7 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'1080 x 2400 Pixels (~405 PPI)','90Hz, 400 nits (typ)',128,6,5000,32999),(186,'Android 11 OS, MIUI 12',196,'Octa-core (1 x 2.84 GHz Kryo 680 + 3 x 2.42 GHz Kryo 680 + 4 x 1.80 GHz Kryo 680','Qualcomm SM8350 Snapdragon 888 (5 nm)','AMOLED Capacitive Touchscreen, 1B Colors, Multitouch',6.81,'1440 x 3200 Pixels (~515 PPI)','120Hz, HDR10+, 1500 nits (peak)',256,8,4600,144999),(187,'Android 11 OS, MIUI 12',157,'Octa-core (2 x 2.3 GHz Kryo 470 Gold + 6 x 1.8 GHz Kryo 470 Silver)','Qualcomm SM7150 Snapdragon 732G (8 nm)','AMOLED Capacitive Touchscreen, 1B Colors, Multitouch',6.55,'1080 x 2400 Pixels (~402 PPI)',NULL,128,6,4250,43999),(188,'Android 11 OS',178,'Octa-core (2 x 2.05 GHz Cortex-A76 + 6 x 2.0 GHz Cortex-A55)','Mediatek Helio G95 (12 nm)','AMOLED Capacitive Touchscreen, Multitouch',6.43,'1080 x 2400 Pixels (~409 PPI)','450 nits (typ), 1100 nits (peak)',128,8,5000,39999),(189,'Android 11 OS, MIUI 12',196,'Octa-core (1 x 3.2 GHz Kryo 585 + 3 x 2.42 GHz Kryo 585 + 4 x 1.80 GHz Kryo 585)','Qualcomm SM8250-AC Snapdragon 870 5G (7 nm)','AMOLED Capacitive Touchscreen, Multitouch',6.67,'1080 x 2400 Pixels (~395 PPI)','120Hz, HDR10+, 1300 nits (peak)',256,8,4520,65999),(190,'Android 11 OS, MIUI 12',192,'Octa-core (2 x 2.3 GHz Kryo 470 Gold + 6 x 1.8 GHz Kryo 470 Silver)','Qualcomm SM7150 Snapdragon 732G (8 nm)','AMOLED Capacitive Touchscreen, Multitouch',6.67,'1080 x 2400 Pixels (~395 PPI)','120Hz, HDR10, 450 nits (typ), 1200 nits (peak)',128,8,5020,47999),(191,'Android 10 OS, MIUI 11',198,'Octa-core (2 x 2.0 GHz Cortex-A75 + 6 x 1.8 GHz Cortex-A55)','MediaTek Helio G85 (12nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.53,'1080 x 2340 Pixels (~395 PPI)','450 nits typ. brightness (advertised)',128,4,5020,31999),(192,'Android 11 OS, MIUI 12',178,'Octa-core (2 x 2.2 GHz Kryo 460 Gold + 6 x 1.7 GHz Kryo 460 Silver)','Qualcomm SDM678 Snapdragon 678 (11 nm)','Super AMOLED Capacitive Touchscreen, Multitouch',6.44,'1080 x 2400 Pixels (~409 PPI)','450 nits (typ), 1100 nits (peak)',128,4,5000,31999),(193,'Android 10 OS, MIUI 12',198,'Octa-core (4 x 2.0 GHz Kryo 260 Gold + 4 x 1.8 GHz Kryo 260 Silver)','Qualcomm Snapdragon 662 (11nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.5,'1080 x 2340 Pixels (~395 PPI)','400 nits typ. brightness (advertised)',128,6,6000,31999),(194,'Android 10 OS, MIUI 12',198,'Octa-core (2 x 2.0 GHz Cortex-A75 + 6 x 1.8 GHz Cortex-A55)','Mediatek Helio G80 (12 nm)','IPS LCD Capacitive Touchscreen, 16M Colors, Multitouch',6.53,'1080 x 2340 Pixels (~395 PPI)','400 nits typ. brightness (advertised)',64,4,5000,26499),(195,'Android 11 OS, One UI 3.1',203,'Octa-core (2 x 2.3 GHz Kryo 465 Gold + 6 x 1.8 GHz Kryo 465 Silver)','Qualcomm SM7125 Snapdragon 720G (8 nm)','Super AMOLED Capacitive Touchscreen, Multitouch',6.7,'1080 x 2400 Pixels (~393 PPI)','90Hz, 800 nits (peak)',128,8,5000,69999);
-/*!40000 ALTER TABLE `specification` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -370,7 +346,7 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
   `username` varchar(30) NOT NULL,
   `firstname` varchar(30) NOT NULL,
@@ -378,7 +354,7 @@ CREATE TABLE `user` (
   `password_hash` varchar(255) NOT NULL,
   `is_admin` tinyint(1) NOT NULL,
   PRIMARY KEY (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -387,6 +363,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES ('AhmedAli','Ahmed','Ali','pbkdf2:sha256:260000$DndKHtNA2UP9TUtn$58d81599edc594a1f5c94b0a1eb2718cc473635485b95498dde007574875e8f4',0),('KamranK','Kamran','Khan','pbkdf2:sha256:260000$NmX8dfDBW9JzV2Jg$cb7e76bab27a1571d914a8f49211c9ef127542422be517c54a9b1b16ea0506ba',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -399,4 +376,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-12 20:56:49
+-- Dump completed on 2021-07-31 16:06:44
