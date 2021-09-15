@@ -112,7 +112,7 @@ CREATE TABLE `favourite` (
 
 LOCK TABLES `favourite` WRITE;
 /*!40000 ALTER TABLE `favourite` DISABLE KEYS */;
-INSERT INTO `favourite` VALUES (6,'SA50'),(7,'SA50'),(15,'SA50'),(39,'SA50');
+INSERT INTO `favourite` VALUES (6,'SA50'),(7,'SA50'),(15,'SA50'),(39,'SA50'),(5,'SA51'),(31,'SA51'),(34,'SA51'),(20,'SA51');
 /*!40000 ALTER TABLE `favourite` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,6 +139,7 @@ CREATE TABLE `marketshare` (
 
 LOCK TABLES `marketshare` WRITE;
 /*!40000 ALTER TABLE `marketshare` DISABLE KEYS */;
+INSERT INTO `marketshare` VALUES ('Samsung',18,2021,2),('Samsung',22,2021,1),('Samsung',16,2020,4),('Samsung',22,2020,3),('Samsung',20,2020,2),('Samsung',20,2020,1),('Samsung',18,2019,4),('Samsung',21,2019,3),('Samsung',21,2019,2),('Samsung',21,2019,1),('Samsung',18,2018,4),('Samsung',19,2018,3),('Xiaomi',9,2018,3),('Xiaomi',6,2018,4),('Xiaomi',8,2019,1),('Xiaomi',9,2019,2),('Xiaomi',8,2019,3),('Xiaomi',8,2019,4),('Xiaomi',10,2020,1),('Xiaomi',10,2020,2),('Xiaomi',13,2020,3),('Xiaomi',11,2020,4),('Xiaomi',14,2021,1),('Xiaomi',16,2021,2),('Apple',12,2018,3),('Apple',17,2018,4),('Apple',12,2019,1),('Apple',10,2019,2),('Apple',12,2019,3),('Apple',18,2019,4),('Apple',14,2020,1),('Apple',14,2020,2),('Apple',11,2020,3),('Apple',21,2020,4),('Apple',17,2021,1),('Apple',15,2021,2);
 /*!40000 ALTER TABLE `marketshare` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -367,7 +368,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('AhmedAli','Ahmed','Ali','pbkdf2:sha256:260000$DndKHtNA2UP9TUtn$58d81599edc594a1f5c94b0a1eb2718cc473635485b95498dde007574875e8f4',0),('KamranK','Kamran','Khan','pbkdf2:sha256:260000$NmX8dfDBW9JzV2Jg$cb7e76bab27a1571d914a8f49211c9ef127542422be517c54a9b1b16ea0506ba',0),('SA50','Sohaib','Ahmed','pbkdf2:sha256:260000$JmWc1vQDdsat4fAG$42e76e0358358714cda5a138bd94c8ed3f13a120cbf819651830cb735a19e8df',1),('SA51','Sohaib','Ahmed','pbkdf2:sha256:260000$MLAPhlq6lo3L9OJb$5e744eee99cf41f726710314d58aa90de0634bc7a951710182de8051dcf048bc',0);
+INSERT INTO `user` VALUES ('AhmedAli','Ahmed','Ali','pbkdf2:sha256:260000$DndKHtNA2UP9TUtn$58d81599edc594a1f5c94b0a1eb2718cc473635485b95498dde007574875e8f4',0),('KamranK','Kamran','Khan','pbkdf2:sha256:260000$NmX8dfDBW9JzV2Jg$cb7e76bab27a1571d914a8f49211c9ef127542422be517c54a9b1b16ea0506ba',0),('SA50','Sohaib','Ahmed','pbkdf2:sha256:260000$JmWc1vQDdsat4fAG$42e76e0358358714cda5a138bd94c8ed3f13a120cbf819651830cb735a19e8df',1),('SA51','Sohaib','Ahmed','pbkdf2:sha256:260000$MLAPhlq6lo3L9OJb$5e744eee99cf41f726710314d58aa90de0634bc7a951710182de8051dcf048bc',0),('SA52','Sohaib','Abbasi','pbkdf2:sha256:260000$C1VmuFFjrrUcLsxn$11e04dbde3035afb5112d16c83824ba4d360dc4fa96198d442bac1763ba1bb75',0);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -380,4 +381,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-09-07 16:17:26
+-- Dump completed on 2021-09-15 23:42:46
